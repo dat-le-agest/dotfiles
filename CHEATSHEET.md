@@ -150,6 +150,10 @@ Files are formatted automatically on save.
 | `<C-k>`             | Toggle signature help              |
 | `<Tab>` / `<S-Tab>` | Jump between snippet placeholders  |
 
+Brackets and quotes close automatically (nvim-autopairs). `Enter` between `{}` puts
+the cursor on an indented line; `Backspace` on an empty pair deletes both;
+typing the closing bracket just jumps over it.
+
 ## Git (gitsigns)
 
 | Key           | Action                          |
