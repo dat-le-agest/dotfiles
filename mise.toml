@@ -1,0 +1,12 @@
+[tools]
+neovim = "latest"
+node = "lts"
+python = "3.12"
+go = "latest"
+rust = "stable"
+ripgrep = "latest"
+fd = "latest"
+fzf = "latest"
+lazygit = "latest"
+"aqua:tree-sitter/tree-sitter" = "latest"
+minikube = "1.38.1"
