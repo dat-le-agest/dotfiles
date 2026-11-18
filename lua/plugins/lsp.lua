@@ -73,8 +73,17 @@ return {
             client.server_capabilities.hoverProvider = false
           end
 
-          map("gd", vim.lsp.buf.definition, "Go to definition")
+          -- Show LSP lists in fzf-lua (preview + filter); a single result jumps directly
+          local fzf = function(picker)
+            return function() require("fzf-lua")[picker]() end
+          end
+          map("gd", fzf("lsp_definitions"), "Go to definition")
           map("gD", vim.lsp.buf.declaration, "Go to declaration")
+          map("grr", fzf("lsp_references"), "References")
+          map("gri", fzf("lsp_implementations"), "Implementations")
+          map("grt", fzf("lsp_typedefs"), "Type definition")
+          map("gO", fzf("lsp_document_symbols"), "Document symbols")
+          map("<leader>fS", fzf("lsp_live_workspace_symbols"), "Workspace symbols")
           map("<leader>ch", function()
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = buf }), { bufnr = buf })
           end, "Toggle inlay hints")

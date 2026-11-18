@@ -1,14 +1,18 @@
 local map = vim.keymap.set
 
 map("n", "<Esc>", "<cmd>nohlsearch<cr>")
-map("n", "<leader>w", "<cmd>write<cr>", { desc = "Save file" })
-map("n", "<leader>q", "<cmd>quit<cr>", { desc = "Close window" })
 
 -- Move between windows
 map("n", "<C-h>", "<C-w>h")
 map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
+
+-- Resize windows (Alt + direction); splits use the default <C-w>s / <C-w>v
+map("n", "<M-h>", "<cmd>vertical resize -2<cr>", { desc = "Narrower window" })
+map("n", "<M-l>", "<cmd>vertical resize +2<cr>", { desc = "Wider window" })
+map("n", "<M-k>", "<cmd>resize +2<cr>", { desc = "Taller window" })
+map("n", "<M-j>", "<cmd>resize -2<cr>", { desc = "Shorter window" })
 
 -- Move selected lines
 map("v", "J", ":m '>+1<cr>gv=gv", { silent = true })

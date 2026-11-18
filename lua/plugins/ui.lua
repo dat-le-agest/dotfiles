@@ -23,6 +23,9 @@ return {
       -- Override default [b/]b to follow the order shown in the bufferline
       { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
       { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+      -- Faster buffer switching (replaces H/L = top/bottom of screen)
+      { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
+      { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
       { "[B", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer left" },
       { "]B", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer right" },
       {
@@ -40,6 +43,8 @@ return {
         desc = "Close buffer",
       },
       { "<leader>bo", "<cmd>BufferLineCloseOthers<cr>", desc = "Close other buffers" },
+      { "<leader>bl", "<cmd>BufferLineCloseLeft<cr>", desc = "Close buffers to the left" },
+      { "<leader>br", "<cmd>BufferLineCloseRight<cr>", desc = "Close buffers to the right" },
       { "<leader>bp", "<cmd>BufferLineTogglePin<cr>", desc = "Pin/unpin buffer" },
       { "<leader>bj", "<cmd>BufferLinePick<cr>", desc = "Pick buffer by letter" },
     },

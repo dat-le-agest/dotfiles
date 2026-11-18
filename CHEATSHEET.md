@@ -7,22 +7,28 @@
 
 | Key                | Action                                |
 | ------------------ | ------------------------------------- |
-| `<leader>w`        | Save file                             |
-| `<leader>q`        | Close window                          |
 | `<Esc>`            | Clear search highlight                |
 | `<C-h/j/k/l>`      | Move to left/down/up/right window     |
+| `<M-h>` / `<M-l>` | Narrower / wider window (Alt)        |
+| `<M-k>` / `<M-j>` | Taller / shorter window (Alt)        |
 | `<C-^>`            | Jump back to the previous file        |
 | `J` / `K` (visual) | Move selected lines down/up           |
+
+Windows (built-in): `<C-w>s` split horizontally | `<C-w>v` split vertically |
+`<C-w>q` close | `<C-w>o` close others | `<C-w>=` equalize sizes.
 
 ## Buffers (bufferline at the top)
 
 | Key           | Action                                          |
 | ------------- | ----------------------------------------------- |
-| `]b` / `[b`   | Next / previous buffer (in bufferline order)    |
+| `L` / `H`     | Next / previous buffer (in bufferline order)    |
+| `]b` / `[b`   | Same as `L` / `H`                               |
 | `]B` / `[B`   | Move current buffer right / left                |
 | `<leader>bj`  | Pick a buffer by the letter shown on the bar    |
 | `<leader>bd`  | Close buffer (keeps the window, asks if unsaved) |
 | `<leader>bo`  | Close all other buffers                         |
+| `<leader>bl`  | Close all buffers to the left                   |
+| `<leader>br`  | Close all buffers to the right                  |
 | `<leader>bp`  | Pin / unpin buffer                              |
 
 ## Find (fzf-lua)
@@ -35,6 +41,7 @@
 | `<leader>fb` | Buffers                    |
 | `<leader>fm` | Marks (bookmarks)          |
 | `<leader>fs` | Symbols in file (LSP)      |
+| `<leader>fS` | Symbols in project (LSP)   |
 | `<leader>fd` | Diagnostics in file        |
 | `<leader>fh` | Search help                |
 | `<leader>fr` | Resume last search         |
@@ -120,15 +127,17 @@ Name a terminal with `:ToggleTermSetName <name>`; hide/show all with `:ToggleTer
 
 | Key               | Action                              |
 | ----------------- | ----------------------------------- |
-| `gd`              | Go to definition                    |
+| `gd`              | Go to definition (fzf)              |
 | `gD`              | Go to declaration                   |
 | `K`               | Hover documentation                 |
-| `grr`             | References                          |
-| `gri`             | Go to implementation                |
+| `grr`             | References (fzf, with preview)      |
+| `gri`             | Implementations (fzf)               |
+| `grt`             | Type definition (fzf)               |
 | `grn`             | Rename symbol                       |
 | `<leader>ca`      | Code action with preview (normal or visual) |
 | `gra`             | Code action (built-in, fzf picker)  |
-| `gO`              | Symbols in file                     |
+| `gO`              | Symbols in file (fzf)               |
+| `<leader>fS`      | Symbols in whole project (fzf)      |
 | `<C-s>` (insert)  | Signature help                      |
 | `<leader>cf`      | Format (file or selection)          |
 | `<leader>ch`      | Toggle inlay hints                  |
