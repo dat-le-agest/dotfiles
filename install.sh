@@ -22,14 +22,16 @@ if ! command -v mise >/dev/null; then
 fi
 export PATH="$HOME/.local/bin:$MISE_DATA/shims:$PATH"
 
-# 3. Link this repo's mise.toml as the global mise config
-mkdir -p "$CONFIG_HOME/mise"
-target="$CONFIG_HOME/mise/config.toml"
-if [[ -e "$target" && ! -L "$target" ]]; then
-  mv "$target" "$target.bak.$(date +%s)"
-  echo "==> Backed up existing mise config to $target.bak.*"
+# 3. Load this repo's mise.toml globally via conf.d. mise reads every file in
+#    conf.d, but `mise use -g` only writes to config.toml, so tools you add
+#    elsewhere never end up in the nvim config.
+mkdir -p "$CONFIG_HOME/mise/conf.d"
+old_link="$CONFIG_HOME/mise/config.toml"
+if [[ -L "$old_link" && "$(readlink -f "$old_link")" == "$(readlink -f "$NVIM_DIR/mise.toml")" ]]; then
+  rm "$old_link" # migrate from the old setup that linked config.toml itself
+  echo "==> Removed old link $old_link (your own global config goes there now)"
 fi
-ln -sf "$NVIM_DIR/mise.toml" "$target"
+ln -sfn "$NVIM_DIR/mise.toml" "$CONFIG_HOME/mise/conf.d/nvim.toml"
 
 # Unauthenticated GitHub API allows only 60 requests/hour, so mise often hits 403.
 # Use the gh CLI token if none is set in the environment.
