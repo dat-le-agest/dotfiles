@@ -49,6 +49,32 @@ Windows (built-in): `<C-w>s` split horizontally | `<C-w>v` split vertically |
 Inside fzf: `Enter` open | `Ctrl-s` horizontal split | `Ctrl-v` vertical split |
 `Ctrl-t` new tab | `Esc` quit.
 
+## Search & replace
+
+| Key / command        | Action                                                  |
+| -------------------- | ------------------------------------------------------- |
+| `<leader>sr`         | Search & replace in project (grug-far), word under cursor prefilled |
+| `<leader>sr` (visual) | Same, prefilled with the selection                     |
+| `<leader>sf`         | Search & replace in the current file only (grug-far)    |
+| `:%s/old/new/g`      | Replace in file (live preview while typing)             |
+| `:%s/old/new/gc`     | Replace in file, confirm each match (`y`/`n`/`a`/`q`)   |
+| `grn`                | Rename symbol everywhere (LSP)                          |
+
+Inside grug-far (`<localleader>` is also Space):
+
+| Key                  | Action                                     |
+| -------------------- | ------------------------------------------ |
+| `Tab` / `S-Tab`      | Next / previous input (search, replace, files filter, flags, paths) |
+| `<localleader>r`     | Replace all                                |
+| `<localleader>s`     | Sync: apply edits made in the results list back to files |
+| `dd` on a result line | Exclude that match from Sync (`<localleader>s`) |
+| `Enter`              | Go to the match                            |
+| `<localleader>i`     | Preview the match                          |
+| `<localleader>q`     | Send results to quickfix                   |
+| `<localleader>t`     | History                                    |
+| `<localleader>c`     | Close                                      |
+| `g?`                 | Show all keys                              |
+
 ## Bookmarks (built-in marks)
 
 | Key                           | Action                                                  |
@@ -146,6 +172,11 @@ Name a terminal with `:ToggleTermSetName <name>`; hide/show all with `:ToggleTer
 | `<C-o>` / `<C-i>` | Jump back / forward                 |
 
 Files are formatted automatically on save.
+
+Tip: press `K` or `<leader>cd` **twice** to move the cursor into the popup
+(scroll with `j`/`k`/`Ctrl-d`/`Ctrl-u`, copy with `y`, close with `q`).
+Moving the cursor in the code first closes the popup. `<C-w>w` also jumps into
+an open popup, `<C-w>p` jumps back.
 
 ## Completion (blink.cmp)
 

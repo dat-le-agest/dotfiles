@@ -67,6 +67,7 @@ return {
         { "<leader>f", group = "Find" },
         { "<leader>c", group = "Code" },
         { "<leader>g", group = "Git" },
+        { "<leader>s", group = "Search & replace" },
         { "<leader>b", group = "Buffer" },
         { "<leader>t", group = "Terminal" },
       },
