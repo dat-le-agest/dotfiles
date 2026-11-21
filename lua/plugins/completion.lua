@@ -33,4 +33,10 @@ return {
       check_ts = true, -- do not pair inside strings/comments (treesitter)
     },
   },
+  {
+    -- Auto close and auto rename HTML/JSX tags
+    "windwp/nvim-ts-autotag",
+    event = { "BufReadPre", "BufNewFile" },
+    opts = {},
+  },
 }

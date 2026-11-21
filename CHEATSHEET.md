@@ -178,6 +178,15 @@ Tip: press `K` or `<leader>cd` **twice** to move the cursor into the popup
 Moving the cursor in the code first closes the popup. `<C-w>w` also jumps into
 an open popup, `<C-w>p` jumps back.
 
+## Frontend (React / Next.js / Vite)
+
+- LSP: TypeScript, ESLint (needs `eslint` in the project), Tailwind CSS
+  (class completion, `K` shows the generated CSS), CSS/SCSS, HTML, Emmet.
+- Emmet: type an abbreviation like `div.card>ul>li*3`, then accept it with `<C-y>`.
+- Tags close and rename automatically in JSX/TSX/HTML (`<div>` adds `</div>`).
+- Prettier from the project's `node_modules` is used when present.
+- Run the dev server in a terminal: `<C-\>` then `npm run dev`.
+
 ## Completion (blink.cmp)
 
 | Key                 | Action                             |

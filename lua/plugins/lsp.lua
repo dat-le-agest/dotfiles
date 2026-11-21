@@ -12,6 +12,11 @@ local tools = {
   "bash-language-server",
   "json-lsp",
   "yaml-language-server",
+  -- Frontend
+  "tailwindcss-language-server",
+  "css-lsp",
+  "html-lsp",
+  "emmet-language-server",
   -- Formatter
   "stylua",
   "prettier",
