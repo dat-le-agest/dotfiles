@@ -21,6 +21,21 @@ map("v", "K", ":m '<-2<cr>gv=gv", { silent = true })
 -- Diagnostics
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line diagnostics" })
 
+-- Restart LSP for this buffer, then reload it so servers that were not attached
+-- yet (e.g. Tailwind right after installing it) get a chance to attach
+map("n", "<leader>cr", function()
+	local buf = vim.api.nvim_get_current_buf()
+	if #vim.lsp.get_clients({ bufnr = buf }) > 0 then
+		vim.cmd("lsp restart")
+	end
+	if vim.bo[buf].modified then
+		vim.notify("LSP restarted (buffer has unsaved changes, not reloaded)", vim.log.levels.INFO)
+	else
+		vim.cmd("edit")
+		vim.notify("LSP restarted", vim.log.levels.INFO)
+	end
+end, { desc = "Restart LSP" })
+
 -- Cheatsheet: open CHEATSHEET.md in a read-only float, q to close
 map("n", "<leader>?", function()
 	local path = vim.fn.stdpath("config") .. "/CHEATSHEET.md"

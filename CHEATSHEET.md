@@ -168,6 +168,7 @@ Name a terminal with `:ToggleTermSetName <name>`; hide/show all with `:ToggleTer
 | `<leader>cf`      | Format (file or selection)          |
 | `<leader>ch`      | Toggle inlay hints                  |
 | `<leader>cd`      | Line diagnostics                    |
+| `<leader>cr`      | Restart LSP (e.g. after `npm install` / adding Tailwind) |
 | `]d` / `[d`       | Next / previous diagnostic          |
 | `<C-o>` / `<C-i>` | Jump back / forward                 |
 
